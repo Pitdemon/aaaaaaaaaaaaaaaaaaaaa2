@@ -1,0 +1,168 @@
+body {
+    background: linear-gradient(to top, rgb(43, 0, 59), rgb(130, 1, 129));
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    overflow: hidden;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    perspective: 1000px; 
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.logo,
+.catalogo,
+.texto-logo {
+    position: absolute;
+    transition: opacity 1s, transform 1s;
+}
+
+.logo {
+    width: 250px;
+    height: 250px;
+    background: url('./Imagens/logo-icon.png') no-repeat center center;
+    background-size: contain;
+    transform: scale(0) translateZ(-300px); 
+    animation: logoAnimation 2.5s ease forwards; 
+    filter: blur(3px); 
+}
+
+.texto-logo {
+    width: 1000px;
+    height: auto;
+    top: 25%;
+    left: 25%;
+    transform: translateY(100vh); 
+    opacity: 0;
+    transition: opacity 1s, transform 1s;
+    animation: textoLogoAnimation 2s ease-out forwards 2.5s; 
+}
+
+.texto-logo img {
+    width: 700px;
+}
+
+.catalogo {
+    display: none;
+    width: 98%;
+    height: 98%;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    opacity: 0;
+    transform: translateX(100vw);
+}
+
+.catalogo .filmes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 27px;
+    margin: 4px;
+}
+
+.catalogo .filmes img {
+    width: 188px;
+    height: auto;
+    transition: transform 0.5s;
+    box-shadow: 8px 8px 10px rgba(29, 29, 29, 0.7);
+}
+
+.catalogo .filmes img:hover {
+    transform: scale(1.05);
+}
+
+.area-texto-catalogo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.area-texto-catalogo span {
+    font-size: 28px;
+}
+
+.area-texto-catalogo img {
+    margin: 10px;
+}
+
+.area-texto-catalogo .img-texto {
+    width: 450px;
+    margin-bottom: 250px;
+}
+
+.area-texto-catalogo .img-contador {
+    width: 250px;
+}
+
+.slide-in {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.slide-out {
+    transform: translateX(-100vw);
+    opacity: 0;
+}
+
+/* Animação para a logo */
+@keyframes logoAnimation {
+    0% {
+        transform: scale(0.01) translateZ(-300px);
+        opacity: 0;
+        filter: blur(2px); 
+    }
+    50% {
+        transform: scale(1) translateZ(0);
+        opacity: 1;
+        filter: blur(1px); 
+    }
+
+    75% {
+        transform: scale(1.05) translateZ(30px);
+        opacity: 1;
+        filter: blur(0.5px);
+    }
+
+    100% {
+        transform: scale(1.1) translateZ(500px); 
+        opacity: 0;
+        filter: blur(0); 
+        
+    }
+}
+
+/* @keyframes logoAnimation {
+    0% {
+        transform: scale(0) translateZ(-300px);
+        opacity: 0;
+        filter: blur(10px);
+    }
+    40% {
+        transform: scale(1) translateZ(0);
+        opacity: 1;
+        filter: blur(5px);
+    }
+    70% {
+        transform: scale(1.05) translateZ(50px);
+        opacity: 1;
+        filter: blur(2px);
+    }
+    100% {
+        transform: scale(1) translateZ(100px); 
+        opacity: 1;
+        filter: blur(0);
+    }
+} */
+
